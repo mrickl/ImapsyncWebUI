@@ -59,9 +59,8 @@ ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_LOG_DIR /var/log/apache2
 ENV LAN C
 
-RUN wget -N https://imapsync.lamiral.info/imapsync && \
-    mv imapsync /usr/lib/cgi-bin/imapsync   && \
-    chmod +x /usr/lib/cgi-bin/imapsync
+COPY imapsync /usr/lib/cgi-bin
+RUN chmod +x /usr/lib/cgi-bin/imapsync
 
 COPY imapsync_form_extra.html /var/www/html
 COPY imapsync_form.css /var/www/html
@@ -69,7 +68,6 @@ COPY imapsync_form.js /var/www/html
 COPY imapsyncwebui.conf /etc/apache2/sites-available/
 
 RUN ln -s /var/www/html/imapsync_form_extra.html /var/www/html/index.html
-
 
 RUN a2enmod cgi
 RUN a2dissite 000-default
