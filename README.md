@@ -1,4 +1,4 @@
-# ImapsyncWebUI
+# Imapsync with WebUI
 
 
 ## German
