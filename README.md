@@ -25,3 +25,11 @@ Installtion of the container:
 
 ## Installation
 > docker run -d --name imapsync -p 80:80 mrickl/imapsyncwithwebui
+
+## Information
+
+Der "Abort" Button hat im Docker Container keine Funktion, aufgrund der im Docker befindlichen /.dockerenv Datei. Hierfür gibt es allerdings einen Workaround, wodurch das Abbrechen der Sync Jobs möglich ist. Ich bin bereits an einer Lösung dran damit der Workaround nicht benötigt wird
+
+The "Abort" button has no function in the Docker container, because of the /.dockerenv file located in Docker. However, there is a workaround for this, which makes it possible to abort the sync jobs. I am already working on a solution so that the workaround is not needed.
+
+> docker exec imapsync rm ./dockerenv
